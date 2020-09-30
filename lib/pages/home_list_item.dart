@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter/model/data/banner_model.dart';
 
+import 'article_page.dart';
+
 class HomeListItem extends StatefulWidget {
   final Stories data;
 
@@ -18,13 +20,16 @@ class _HomeListItemState extends State<HomeListItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16.0),
-      color: Theme.of(context).primaryColor,
-      child: GestureDetector(
-        onTap: () {
-          print(widget.data.id);
-        },
+    return GestureDetector(
+      onTap: () {
+        print(widget.data.id);
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ArticlePage(id: widget.data.id),
+        ));
+      },
+      child: Container(
+        padding: EdgeInsets.all(16.0),
+        color: Theme.of(context).primaryColor,
         child: Row(
           children: [
             Expanded(

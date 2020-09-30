@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/model/data/banner_model.dart';
-import 'package:my_flutter/apis/index.dart' as api;
+import 'package:my_flutter/apis/index.dart' as apis;
 
 import 'home_banner.dart';
 import 'home_list_item.dart';
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   Future getNews() async {
     Map<String, dynamic> query = {};
-    Response res = await api.getNews(query);
+    Response res = await apis.getNews(query);
     if (res != null) {
       print(res.data);
       res.data['top_stories'].forEach((item) {
